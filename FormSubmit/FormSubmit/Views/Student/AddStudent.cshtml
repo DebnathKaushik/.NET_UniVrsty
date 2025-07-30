@@ -1,0 +1,46 @@
+﻿<p>@Model.Name</p>
+<p>@Model.Username</p>
+<p>@Model.Id</p>
+<p>@Model.Email</p>
+<p>@Model.DOB</p>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddStudent</title>
+</head>
+<body>
+    <div>
+        <h1>Add Student</h1>
+    </div>
+    <div>
+        <form method="post">
+            <input type="text" class="form-control" value="@Model.Name" placeholder="Name" name="Name" />
+            <span class="text-danger">@Html.ValidationMessage("Name")</span>
+            <input type="text" class="form-control" value="@Model.Username" placeholder="Username" name="Username" />
+            <span class="text-danger">@Html.ValidationMessage("Username")</span>
+            <input type="text" class="form-control" value="@Model.Id" placeholder="Id" name="Id" />
+            <span class="text-danger">@Html.ValidationMessage("Id")</span>
+            <input type="date" class="form-control" value="@Model.DOB" placeholder="Date of Birth" name="DOB" />
+            <span class="text-danger">@Html.ValidationMessage("DOB")</span>
+            <input type="text" class="form-control" value="@Model.Email" placeholder="Email" name="Email" />
+            <span class="text-danger">@Html.ValidationMessage("Email")</span>
+
+            <input type="submit" class="btn btn-primary" value="Create" />
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>
