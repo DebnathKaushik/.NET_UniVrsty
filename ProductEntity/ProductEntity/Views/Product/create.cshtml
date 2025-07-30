@@ -3,12 +3,18 @@
     ViewBag.Title = "create";
 }
 
-<h2>create</h2>
+<a href="/Product/Index" class="btn btn-light">Product List</a>
+<a href="/Product/Restock" class="btn btn-light">Restock</a>
+</br>
+</br>
+<h2>Create Product Page</h2>
 
 <form method="post">
-    <input type="text" class="form-control" name="Name" placeholder="Name" />
-    <input type="text" class="form-control" name="Price" placeholder="Price" />
-    <input type="text" class="form-control" name="Qty" placeholder="Quantity" />
-    <input type="text" class="form-control" name="Description" placeholder="Description" />
-    <input type="submit" value="Product Create" class="btn btn-primary" />
+    Name:<input type="text" class="form-control" name="Name" placeholder="" />
+    Price: <input type="text" class="form-control" name="Price" placeholder="" />
+    Quantity: <input type="text" class="form-control" name="Qty" placeholder="" />
+    Description: <input type="text" class="form-control" name="Description" placeholder="" />
+    </br>
+
+    <input type="submit" value="Product Create" class="btn btn-success me-3" />
 </form>

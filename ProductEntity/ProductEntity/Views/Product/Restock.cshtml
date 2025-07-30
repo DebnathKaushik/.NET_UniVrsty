@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Restock Page</title>
+</head>
+<body>
+    <a href="/Product/Create" class="btn btn-light">Create Product</a>
+    <a href="/Product/Index" class="btn btn-light">Product List</a>
+    </br>
+
+    <div>
+        <h2>Here some product need to Restock</h2>
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Description</th>
+
+
+                @foreach (var item in Model)
+                {
+                    if (item.Qty < 10) // if product Quatity less than 10 then restock
+                    {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.Qty</td>
+                        <td>@item.Description</td>
+                    </tr>
+                }
+            }
+
+
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

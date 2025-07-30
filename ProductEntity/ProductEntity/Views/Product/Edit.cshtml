@@ -3,15 +3,19 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit Page</h2>
 
-
+<a href="/Product/Create" class="btn btn-light">Create Product</a>
+</br>
+</br>
+<h2>Edit Your Product</h2>
+</br>
 <form method="post">
-    <input type="text" class="form-control" name="Name" placeholder="Name" value="@Model.Name"/>
-    <input type="text" class="form-control" name="Price" placeholder="Price" value="@Model.Price"/>
-    <input type="text" class="form-control" name="Qty" placeholder="Quantity" value="@Model.Qty" />
-    <input type="text" class="form-control" name="Description" placeholder="Description" value="@Model.Description"/>
-    <input type="submit" value="Product Edit" class="btn btn-primary" />
+    Name<input type="text" class="form-control" name="Name" placeholder="" value="@Model.Name" />
+    Price<input type="text" class="form-control" name="Price" placeholder="" value="@Model.Price" />
+    Quantity<input type="text" class="form-control" name="Qty" placeholder="" value="@Model.Qty" />
+    Description<input type="text" class="form-control" name="Description" placeholder="" value="@Model.Description" />
+    </br>
+    <input type="submit" value="Edit Done" class="btn btn-primary" />
 </form>
 
 

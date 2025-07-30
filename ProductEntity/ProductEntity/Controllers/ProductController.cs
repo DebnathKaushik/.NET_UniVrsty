@@ -20,17 +20,24 @@ namespace ProductEntity.Controllers
         }
 
         [HttpGet]
-        public ActionResult create()
+        public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult create(Product p)
+        public ActionResult Create(Product product)
         {
-            db.Products.Add(p);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (!ModelState.IsValid)
+            {
+                return View(product);
+            }
+            else
+            {
+                db.Products.Add(product);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
             
         }
 
@@ -85,16 +92,16 @@ namespace ProductEntity.Controllers
         [HttpPost]
         public ActionResult Delete(int id, string choice)
         {
-            if (choice == "No")
+            if (choice != "Yes") // means no
             {
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
-            else
+            else  // means yes
             {
-                var pd = db.Products.Find(id);
-                db.Products.Remove(pd);
+                var product = db.Products.Find(id);
+                db.Products.Remove(product);
                 db.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
         }
 

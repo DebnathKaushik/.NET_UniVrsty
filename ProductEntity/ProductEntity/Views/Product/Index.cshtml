@@ -6,10 +6,16 @@
 
 
 
-<h2>Index</h2>
-<a href="/Product/create">Product Create</a>
+
+<a href="/Product/Create" class="btn btn-light">Create Product</a>
+<a href="/Product/Restock" class="btn btn-light">Restock</a>
+</br>
+</br>
+<h2>Product List</h2>
+</br>
 <table class="table table-bordered">
     <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Price</th>
         <th>Quatity</th>
@@ -23,8 +29,8 @@
             <td>@item.Price</td>
             <td>@item.Qty</td>
             <td>@item.Description</td>
-            <td>@Html.ActionLink("EDIT","Edit","Product",new {id = item.Id } ,new { @class = "btn btn-primary" })</td>
-            <td>@Html.ActionLink("DELETE","Delete","Product",new {id = item.Id} ,new { @class = "btn btn-danger" })</td>
+            <td>@Html.ActionLink("EDIT", "Edit", "Product", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+            <td>@Html.ActionLink("DELETE", "Delete", "Product", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
 
 
         </tr>
