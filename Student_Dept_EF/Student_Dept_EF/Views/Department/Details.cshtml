@@ -1,0 +1,45 @@
+﻿@model Student_Dept_EF.EF.Dept_Table
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dept_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dept_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<h5>Students</h5>
+<table class="table table-bordered">
+    <tr>
+        <th>Student Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Count</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Student_Table)
+    {
+        <tr>
+            <td>@item.Student_Id</td>
+            <td>@item.Student_Name</td>
+            <td>@item.Email</td>
+            <th>@item.Dept_Table.Student_Table.Count</th>
+        </tr>
+    }
+</table>
