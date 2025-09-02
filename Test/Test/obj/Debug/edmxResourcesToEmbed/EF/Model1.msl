@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RecoveryTestModelStoreContainer" CdmEntityContainer="RecoveryTestEntities1">
+    <EntitySetMapping Name="Enrolls">
+      <EntityTypeMapping TypeName="RecoveryTestModel.Enroll">
+        <MappingFragment StoreEntitySet="Enroll">
+          <ScalarProperty Name="enroll_id" ColumnName="enroll_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="sport_id" ColumnName="sport_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sports">
+      <EntityTypeMapping TypeName="RecoveryTestModel.Sport">
+        <MappingFragment StoreEntitySet="Sport">
+          <ScalarProperty Name="sport_id" ColumnName="sport_id" />
+          <ScalarProperty Name="sport_name" ColumnName="sport_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="RecoveryTestModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="student_name" ColumnName="student_name" />
+          <ScalarProperty Name="sport_id" ColumnName="sport_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

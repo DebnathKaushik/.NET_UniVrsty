@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RecoveryTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Enroll">
+          <Key>
+            <PropertyRef Name="enroll_id" />
+          </Key>
+          <Property Name="enroll_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="sport_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="sport_id" />
+          </Key>
+          <Property Name="sport_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sport_name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="sport_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Enroll_Sport">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="sport_id" />
+            </Principal>
+            <Dependent Role="Enroll">
+              <PropertyRef Name="sport_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enroll_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="Enroll">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Sport">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="sport_id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="sport_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RecoveryTestModelStoreContainer">
+          <EntitySet Name="Enroll" EntityType="Self.Enroll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sport" EntityType="Self.Sport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Enroll_Sport" Association="Self.FK_Enroll_Sport">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Enroll" EntitySet="Enroll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enroll_Student" Association="Self.FK_Enroll_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Enroll" EntitySet="Enroll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Sport" Association="Self.FK_Student_Sport">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecoveryTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Enroll">
+          <Key>
+            <PropertyRef Name="enroll_id" />
+          </Key>
+          <Property Name="enroll_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="sport_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK_Enroll_Sport" FromRole="Enroll" ToRole="Sport" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Enroll_Student" FromRole="Enroll" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="sport_id" />
+          </Key>
+          <Property Name="sport_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sport_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Enrolls" Relationship="Self.FK_Enroll_Sport" FromRole="Sport" ToRole="Enroll" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Student_Sport" FromRole="Sport" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sport_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Enrolls" Relationship="Self.FK_Enroll_Student" FromRole="Student" ToRole="Enroll" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK_Student_Sport" FromRole="Student" ToRole="Sport" />
+        </EntityType>
+        <Association Name="FK_Enroll_Sport">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="sport_id" />
+            </Principal>
+            <Dependent Role="Enroll">
+              <PropertyRef Name="sport_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enroll_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="Enroll">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Sport">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="sport_id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="sport_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RecoveryTestEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Enrolls" EntityType="Self.Enroll" />
+          <EntitySet Name="Sports" EntityType="Self.Sport" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <AssociationSet Name="FK_Enroll_Sport" Association="Self.FK_Enroll_Sport">
+            <End Role="Sport" EntitySet="Sports" />
+            <End Role="Enroll" EntitySet="Enrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enroll_Student" Association="Self.FK_Enroll_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Enroll" EntitySet="Enrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Sport" Association="Self.FK_Student_Sport">
+            <End Role="Sport" EntitySet="Sports" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RecoveryTestModelStoreContainer" CdmEntityContainer="RecoveryTestEntities1">
+          <EntitySetMapping Name="Enrolls">
+            <EntityTypeMapping TypeName="RecoveryTestModel.Enroll">
+              <MappingFragment StoreEntitySet="Enroll">
+                <ScalarProperty Name="enroll_id" ColumnName="enroll_id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="sport_id" ColumnName="sport_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sports">
+            <EntityTypeMapping TypeName="RecoveryTestModel.Sport">
+              <MappingFragment StoreEntitySet="Sport">
+                <ScalarProperty Name="sport_id" ColumnName="sport_id" />
+                <ScalarProperty Name="sport_name" ColumnName="sport_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="RecoveryTestModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="student_name" ColumnName="student_name" />
+                <ScalarProperty Name="sport_id" ColumnName="sport_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Enroll Student";
+    var enrolledIds = ViewBag.EnrolledSportIds as List<int>;
+}
+
+<h2>Enroll Student: @(ViewBag.Student != null ? ViewBag.Student.student_name : "Unknown")</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        <h4>Select sports (maximum 2):</h4>
+        @foreach (var sport in ViewBag.Sports)
+        {
+            var isChecked = enrolledIds != null && enrolledIds.Contains(sport.sport_id) ? "checked" : "";
+            <div>
+                <input type="checkbox" name="selectedSports" value="@sport.sport_id" @isChecked />
+                <label>@sport.sport_name</label>
+            </div>
+        }
+    </div>
+
+    <br />
+    <input type="submit" value="Enroll" class="btn btn-primary" />
+}
+
+<script>
+    // Client-side: limit checkboxes to 2
+    const checkboxes = document.querySelectorAll('input[name="selectedSports"]');
+    checkboxes.forEach(cb => cb.addEventListener('change', function () {
+        const checked = document.querySelectorAll('input[name="selectedSports"]:checked');
+        if (checked.length > 2) {
+            this.checked = false;
+            alert("You can select a maximum of 2 teams only.");
+        }
+    }));
+</script>

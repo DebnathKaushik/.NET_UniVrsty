@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RecoveryTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Enroll">
+    <Key>
+      <PropertyRef Name="enroll_id" />
+    </Key>
+    <Property Name="enroll_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_id" Type="Int32" Nullable="false" />
+    <Property Name="sport_id" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Sport" Relationship="Self.FK_Enroll_Sport" FromRole="Enroll" ToRole="Sport" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Enroll_Student" FromRole="Enroll" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Sport">
+    <Key>
+      <PropertyRef Name="sport_id" />
+    </Key>
+    <Property Name="sport_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sport_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Enrolls" Relationship="Self.FK_Enroll_Sport" FromRole="Sport" ToRole="Enroll" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Student_Sport" FromRole="Sport" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="student_id" />
+    </Key>
+    <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sport_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Enrolls" Relationship="Self.FK_Enroll_Student" FromRole="Student" ToRole="Enroll" />
+    <NavigationProperty Name="Sport" Relationship="Self.FK_Student_Sport" FromRole="Student" ToRole="Sport" />
+  </EntityType>
+  <Association Name="FK_Enroll_Sport">
+    <End Role="Sport" Type="Self.Sport" Multiplicity="1" />
+    <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sport">
+        <PropertyRef Name="sport_id" />
+      </Principal>
+      <Dependent Role="Enroll">
+        <PropertyRef Name="sport_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enroll_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="Enroll">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Sport">
+    <End Role="Sport" Type="Self.Sport" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sport">
+        <PropertyRef Name="sport_id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="sport_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RecoveryTestEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Enrolls" EntityType="Self.Enroll" />
+    <EntitySet Name="Sports" EntityType="Self.Sport" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <AssociationSet Name="FK_Enroll_Sport" Association="Self.FK_Enroll_Sport">
+      <End Role="Sport" EntitySet="Sports" />
+      <End Role="Enroll" EntitySet="Enrolls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enroll_Student" Association="Self.FK_Enroll_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enroll" EntitySet="Enrolls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Sport" Association="Self.FK_Student_Sport">
+      <End Role="Sport" EntitySet="Sports" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

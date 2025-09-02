@@ -1,0 +1,17 @@
+﻿@model List<Test.EF.Student>
+
+<h2>Students</h2>
+
+@foreach (var student in Model)
+{
+    <div>
+        @student.student_name -
+        @Html.ActionLink(
+            "Enroll",           // Link text
+            "Create",           // Action name
+            "Enroll",           // Controller name
+            new { studentId = student.student_id },  // Route values
+            null                // htmlAttributes
+        )
+    </div>
+}
