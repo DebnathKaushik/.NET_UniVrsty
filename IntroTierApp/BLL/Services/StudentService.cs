@@ -39,5 +39,11 @@ namespace BLL.Services
             var data = new StudentRepo().Create(st);
             return data;
         }
+
+        public static bool Delete(int id)
+        {
+            var data = new StudentRepo().Delete(id);
+            return data;
+        }
     }
 }

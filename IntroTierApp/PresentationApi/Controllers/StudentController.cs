@@ -36,5 +36,16 @@ namespace PresentationApi.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
 
         }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public HttpResponseMessage Delete(int id) {
+            var result = StudentService.Delete(id); 
+            if (result)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "Deleted successfully");
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound, "Student not found");
+        }
     }
 }

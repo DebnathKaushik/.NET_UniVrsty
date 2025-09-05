@@ -35,8 +35,11 @@ namespace DAL.Repos
 
         }
 
-        public bool delete(int id)
+        public bool Delete(int id)
         {
+            var st = db.Students.Find(id);
+            db.Students.Remove(st);    
+            db.SaveChanges();         
             return true;
         }
 
