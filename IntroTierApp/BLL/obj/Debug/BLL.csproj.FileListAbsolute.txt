@@ -1,0 +1,14 @@
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\BLL.dll
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\BLL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\DAL.dll
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\DAL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\obj\Debug\BLL.dll
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\obj\Debug\BLL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\AutoMapper.dll
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\EntityFramework.dll
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\DAL.dll.config
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\AutoMapper.xml
+D:\VERSITY\11 Semister\.NET\Versity\IntroTierApp\BLL\bin\Debug\EntityFramework.xml
