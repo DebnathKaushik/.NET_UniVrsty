@@ -1,0 +1,16 @@
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\bin\Debug\DAL.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\bin\Debug\DAL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\bin\Debug\DAL.dll.config
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\bin\Debug\EntityFramework.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\bin\Debug\EntityFramework.xml
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.Migrations.initDB.resources
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.Migrations.foreigneKEYADD.resources
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\DAL\obj\Debug\DAL.Migrations.dataInput.resources

@@ -1,0 +1,9 @@
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\BLL.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\BLL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\DAL.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\DAL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.pdb

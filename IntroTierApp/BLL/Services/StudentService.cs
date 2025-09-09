@@ -33,6 +33,13 @@ namespace BLL.Services
             return GetMapper().Map<List<StudentDTO>>(data);
         }
 
+
+        public static StudentDTO Get(int id)
+        {
+            var single_student = new StudentRepo().Get(id);
+            return GetMapper().Map<StudentDTO>(single_student);
+        }
+
         public static bool Create(StudentDTO s)
         {
             var st = GetMapper().Map<Student>(s);
