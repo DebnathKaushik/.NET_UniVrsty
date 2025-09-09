@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("news/{id}")]
+        [Route("news/{id:int}")]
         public HttpResponseMessage Get(int Id)
         {
             var data = NewsService.GetNewsbyId(Id);
