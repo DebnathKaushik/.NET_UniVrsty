@@ -11,5 +11,7 @@ namespace DAL.Interfaces
     {
         bool Update(Catagory c);
         bool Delete(int Id);
+
+        Catagory GetByName(string name);
     }
 }

@@ -7,3 +7,8 @@ D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.csproj.CoreC
 D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.dll
 D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\obj\Debug\BLL.pdb
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\AutoMapper.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\EntityFramework.dll
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\DAL.dll.config
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\AutoMapper.xml
+D:\VERSITY\11 Semister\.NET\Versity\News_Catagory\BLL\bin\Debug\EntityFramework.xml

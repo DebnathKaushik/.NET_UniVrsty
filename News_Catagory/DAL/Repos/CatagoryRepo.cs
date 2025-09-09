@@ -27,11 +27,19 @@ namespace DAL.Repos
             return true;
         }
 
+
         public bool Update(Catagory c)
         {
             var exist_std = db.Catagories.Find(c.Id);
             db.Entry(exist_std).CurrentValues.SetValues(c);
             return db.SaveChanges() > 0;
         }
+
+        public Catagory GetByName(string name)
+        {
+            return db.Catagories.FirstOrDefault(c => c.CName == name);
+
+        }
+
     }
 }

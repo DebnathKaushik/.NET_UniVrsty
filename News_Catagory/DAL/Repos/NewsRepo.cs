@@ -43,12 +43,20 @@ namespace DAL.Repos
               .FirstOrDefault(n => n.Date.Date == Date.Date && n.CId == CName.Id);
         }
 
-        public News Get(Catagory CName)
+        public List<News> Get(Catagory CName)
         {
+            // Check if category exists
+            var category = db.Catagories.FirstOrDefault(c => c.Id == CName.Id);
+            if (category == null)
+            {
+                return new List<News>(); // empty list if not found
+            }
+
+            // Return all news for that category, newest first
             return db.Newses
-                .Where(n => n.CId == CName.Id)
-                .OrderByDescending(n => n.Date)
-                .FirstOrDefault();
+                     .Where(n => n.CId == category.Id)
+                     .OrderByDescending(n => n.Date)
+                     .ToList();
         }
     }
 }

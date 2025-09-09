@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.DTOs;
 using DAL;
+using DAL.EF.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,11 @@ namespace BLL.Services
     {
         public static Mapper GetMapper()
         {
-            var config = new MapperConfiguration(cfg => {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<News,NewsDTO>().ReverseMap();
+                cfg.CreateMap<Catagory,CatagoryDTO>().ReverseMap();
+
                 cfg.CreateMap<NewsDTO, CatagoryDTO>().ReverseMap();
                 cfg.CreateMap<NewsDTO, NewsCatDTO>().ReverseMap();
                 cfg.CreateMap<NewsDTO, CatNewsDTO>().ReverseMap();
@@ -24,9 +29,28 @@ namespace BLL.Services
             return new Mapper(config);
         }
 
-       
+        public static List<NewsDTO> GetAll() 
+        {
+            var data = DataAccessFactory.NewsData().Get();
+            return GetMapper().Map<List<NewsDTO>>(data);
+        }
 
+        public static NewsDTO GetNewsbyId(int Id)
+        {
+            var data = DataAccessFactory.NewsData().Get(Id);
+            return GetMapper().Map<NewsDTO>(data);
+        }
 
+        public static List<NewsDTO> GetNewsbyCatagoryName(string CName)
+        {
+            var category = DataAccessFactory.CatagoryData().GetByName(CName);
+
+            if (category == null) return new List<NewsDTO>();
+
+            var data = DataAccessFactory.NewsData().Get(category);
+            return GetMapper().Map<List<NewsDTO>>(data);
+        }
 
 
     }
+}

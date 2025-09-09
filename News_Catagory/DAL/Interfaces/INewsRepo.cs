@@ -18,7 +18,7 @@ namespace DAL.Interfaces
 
         News Get(DateTime Date, Catagory CName);
 
-        News Get(Catagory Cname);
+        List<News> Get(Catagory Cname);
 
         
 
